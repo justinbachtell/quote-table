@@ -1,6 +1,6 @@
 import { api } from "@/trpc/server";
 import { quotes } from "@/db/schema";
-import { currentUser } from "@clerk/nextjs";
+import { currentUser } from "@clerk/nextjs/server";
 import { DataTable } from "@/components/tables/default/data-table";
 import { columns } from "@/components/tables/default/columns";
 

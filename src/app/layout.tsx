@@ -1,6 +1,7 @@
 import React from "react";
 import { env } from "@/env.js";
-import { ClerkProvider, currentUser } from "@clerk/nextjs";
+import { ClerkProvider } from "@clerk/nextjs";
+import { currentUser } from "@clerk/nextjs/server";
 import type { Metadata, Viewport } from "next";
 
 import "@/styles/globals.css";

@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { currentUser } from "@clerk/nextjs";
+import { currentUser } from "@clerk/nextjs/server";
 import { api } from "@/trpc/server";
 import { env } from "@/env";
 import EditQuote from "@/components/auth/edit-quote";

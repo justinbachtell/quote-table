@@ -1,8 +1,8 @@
-# [Quote Table](https://quote-table.justinbachtell.com/)
+# [Quote Table](https://quotetable.com/)
 
 This is an open source starter template for Next.js applications.
 
-[![Quote Library](./public/images/quote-library-icon.png)](https://quote-library.justinbachtell.com/)
+[![Quote Library](./public/images/quote-library-icon.png)](https://quotetable.com/)
 
 > **Important note**
 > The project is set up to use Docker, however an existing issue with Bun prevents the container from running. Please see https://github.com/oven-sh/bun/issues/5648 for more details. For now, the project is deployed with [Vercel](https://vercel.com).

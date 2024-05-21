@@ -1,5 +1,5 @@
 import * as React from "react";
-import { currentUser } from "@clerk/nextjs";
+import { currentUser } from "@clerk/nextjs/server";
 
 import { Shell } from "@/components/shell";
 import { api } from "@/trpc/server";
