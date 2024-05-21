@@ -2,7 +2,13 @@ import { env } from "@/env";
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 
 // Set public routes
-const isPublicRoute = createRouteMatcher(["/"]);
+const isPublicRoute = createRouteMatcher([
+  "/",
+  "/sign-in(.*)",
+  "/sign-up(.*)",
+  "/sso-callback(.*)",
+  "/api(.*)",
+]);
 
 // Set the necessary options for a satellite application
 const options = {

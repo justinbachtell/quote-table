@@ -1,6 +1,7 @@
 import React from "react";
 import { env } from "@/env.js";
 import { ClerkProvider } from "@clerk/nextjs";
+import { currentUser } from "@clerk/nextjs/server";
 import type { Metadata, Viewport } from "next";
 
 import "@/styles/globals.css";
@@ -83,13 +84,11 @@ export const viewport: Viewport = {
 export default async function RootLayout({
   children,
 }: React.PropsWithChildren) {
+  const user = await currentUser();
+
   return (
     <>
-      <ClerkProvider
-        isSatellite={env.NEXT_PUBLIC_CLERK_IS_SATELLITE}
-        domain={env.NEXT_PUBLIC_CLERK_DOMAIN}
-        signInUrl={env.NEXT_PUBLIC_CLERK_SIGN_IN_URL}
-      >
+      <ClerkProvider>
         <html lang="en" suppressHydrationWarning>
           <head />
           <body
@@ -108,7 +107,7 @@ export default async function RootLayout({
             >
               <TRPCReactProvider cookies={cookies().toString()}>
                 <div className="relative flex min-h-screen flex-col">
-                  <SiteHeader />
+                  <SiteHeader user={user} />
                   <main className="flex-1">{children}</main>
                   <SiteFooter />
                 </div>

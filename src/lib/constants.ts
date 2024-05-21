@@ -2,8 +2,8 @@ export const unknownError =
   "An unknown error occurred. Please try again later.";
 
 export const redirects = {
-  toLogin: "/signin",
-  toSignup: "/signup",
+  toLogin: "/sign-in",
+  toSignup: "/sign-up",
   afterLogin: "/dashboard",
   afterLogout: "/",
   toVerify: "/verify-email",
