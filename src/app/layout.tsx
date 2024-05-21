@@ -89,7 +89,7 @@ export default async function RootLayout({
   return (
     <>
       <ClerkProvider
-        isSatellite
+        isSatellite={env.NODE_ENV === "production" ? true : false}
         domain={env.NEXT_PUBLIC_CLERK_DOMAIN}
         signInUrl={env.NEXT_PUBLIC_CLERK_SIGN_IN_URL}
       >
