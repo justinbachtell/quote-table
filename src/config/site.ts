@@ -1,4 +1,5 @@
 import type { FooterItem } from "@/types";
+import type { MainNavItem } from "@/types";
 
 export type SiteConfig = typeof siteConfig;
 
@@ -15,9 +16,9 @@ export const siteConfig = {
   url: "https://quote-table.justinbachtell.com",
   ogImage: "https://quote-table.justinbachtell.com/opengraph-image.png",
   links,
-  /* mainNav: [
+  mainNav: [
     {
-      title: "Main Categories",
+      title: "Categories",
       items: [
         {
           title: "Quotes",
@@ -37,11 +38,6 @@ export const siteConfig = {
           description: "View all books and their quotes.",
           items: [],
         },
-      ],
-    },
-    {
-      title: "Alternative Categories",
-      items: [
         {
           title: "Genres",
           // href: "/categories/genres",
@@ -72,11 +68,6 @@ export const siteConfig = {
           description: "View all publishers and their quotes.",
           items: [],
         },
-      ],
-    },
-    {
-      title: "Locations",
-      items: [
         {
           title: "Cities",
           // href: "/categories/cities",
@@ -97,7 +88,7 @@ export const siteConfig = {
         },
       ],
     },
-  ] satisfies MainNavItem[], */
+  ] satisfies MainNavItem[],
   footerNav: [
     {
       title: "Connect",

@@ -87,7 +87,11 @@ export default async function RootLayout({
 
   return (
     <>
-      <ClerkProvider>
+      <ClerkProvider
+        isSatellite
+        domain={env.NEXT_PUBLIC_CLERK_DOMAIN}
+        signInUrl={env.NEXT_PUBLIC_CLERK_SIGN_IN_URL}
+      >
         <html lang="en" suppressHydrationWarning>
           <head />
           <body
@@ -106,7 +110,7 @@ export default async function RootLayout({
             >
               <TRPCReactProvider cookies={cookies().toString()}>
                 <div className="relative flex min-h-screen flex-col">
-                  <SiteHeader user={user} />
+                  {/* <SiteHeader user={user} /> */}
                   <main className="flex-1">{children}</main>
                   <SiteFooter />
                 </div>

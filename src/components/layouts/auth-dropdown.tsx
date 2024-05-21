@@ -1,4 +1,5 @@
 import type { User } from "@clerk/nextjs/server";
+import { SignIn } from "@clerk/nextjs";
 import { DashboardIcon, ExitIcon, GearIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 
@@ -90,10 +91,7 @@ export function AuthDropdown({ user, className, ...props }: AuthDropdownProps) {
         </DropdownMenu>
       ) : (
         <Button size="sm" className={cn(className)} {...props} asChild>
-          <Link href="/signin">
-            Sign In
-            <span className="sr-only">Sign In</span>
-          </Link>
+          <SignIn />
         </Button>
       )}
     </>
