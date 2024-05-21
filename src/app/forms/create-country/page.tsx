@@ -1,0 +1,11 @@
+// import { api } from "@/trpc/server";
+import { CreateCountry } from "@/components/forms/create-country";
+
+export default async function Countrys() {
+  return (
+    <main className="container flex min-h-screen w-full flex-col">
+      <h1 className="text-3xl font-bold">Create Country</h1>
+      <CreateCountry />
+    </main>
+  );
+}
