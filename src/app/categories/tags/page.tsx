@@ -1,7 +1,7 @@
 import { api } from "../../../trpc/server";
 
 export default async function Tags() {
-  const allTags = await api.tag.getAll.query();
+  const allTags = await api.tag.getAll();
 
   return (
     <>

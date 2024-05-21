@@ -27,7 +27,7 @@ export default async function QuotePage({
   const sessionUserEmail = user.emailAddresses[0]?.emailAddress;
   const validUser = sessionUserEmail === env.ADMIN_EMAIL;
 
-  const quote = (await api.quote.getQuoteWithBookAndAuthorsById.query(id))
+  const quote = (await api.quote.getQuoteWithBookAndAuthorsById(id))
     // Map the quote to the expected format
     .map((quote) => ({
       ...quote,
@@ -45,7 +45,7 @@ export default async function QuotePage({
   const quoteTopicsArray = [];
 
   for (const topicId of quoteTopics) {
-    const topic = await api.topic.getById.query(parseInt(topicId));
+    const topic = await api.topic.getById(parseInt(topicId));
     if (topic) {
       quoteTopicsArray.push(topic);
     }
@@ -55,7 +55,7 @@ export default async function QuotePage({
   const quoteTypesArray = [];
 
   for (const typeId of quoteTypes) {
-    const type = await api.type.getById.query(parseInt(typeId));
+    const type = await api.type.getById(parseInt(typeId));
     if (type) {
       quoteTypesArray.push(type);
     }
@@ -65,7 +65,7 @@ export default async function QuotePage({
   const quoteTagsArray = [];
 
   for (const tagId of quoteTags) {
-    const tag = await api.tag.getById.query(parseInt(tagId));
+    const tag = await api.tag.getById(parseInt(tagId));
     if (tag) {
       quoteTagsArray.push(tag);
     }

@@ -24,9 +24,7 @@ async function QuoteTable() {
   const sessionUserId = user?.id;
 
   // Get all quotes with books and authors
-  const quotesWithBookAndAuthors = (
-    await api.quote.getAllWithBooksAndAuthors.query()
-  )
+  const quotesWithBookAndAuthors = (await api.quote.getAllWithBooksAndAuthors())
     // Filter out private quotes that don't belong to the current user
     .filter((quote) => {
       return quote.isPrivate === false || quote.userId === sessionUserId;

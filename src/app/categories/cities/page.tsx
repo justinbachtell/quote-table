@@ -1,7 +1,7 @@
 import { api } from "@/trpc/server";
 
 export default async function Cities() {
-  const allCities = await api.city.getAll.query();
+  const allCities = await api.city.getAll();
 
   return (
     <>

@@ -7,9 +7,11 @@
  * need to use are documented accordingly near the end.
  */
 import { initTRPC, TRPCError } from "@trpc/server";
+import superjson from "superjson";
+import { ZodError } from "zod";
+import { currentUser } from "@clerk/nextjs";
 
 import { db } from "@/db";
-import { auth } from "@clerk/nextjs";
 
 /**
  * 1. CONTEXT
@@ -23,10 +25,8 @@ import { auth } from "@clerk/nextjs";
  *
  * @see https://trpc.io/docs/server/context
  */
-
 export const createTRPCContext = async (opts: { headers: Headers }) => {
-  const session = auth();
-
+  const session = await currentUser();
   return {
     db,
     session,
@@ -43,7 +43,26 @@ export type Context = Awaited<ReturnType<typeof createTRPCContext>>;
  * ZodErrors so that you get typesafety on the frontend if your procedure fails due to validation
  * errors on the backend.
  */
-const t = initTRPC.context<Context>().create();
+const t = initTRPC.context<Context>().create({
+  transformer: superjson,
+  errorFormatter({ shape, error }) {
+    return {
+      ...shape,
+      data: {
+        ...shape.data,
+        zodError:
+          error.cause instanceof ZodError ? error.cause.flatten() : null,
+      },
+    };
+  },
+});
+
+/**
+ * Create a server-side caller.
+ *
+ * @see https://trpc.io/docs/server/server-side-calls
+ */
+export const createCallerFactory = t.createCallerFactory;
 
 /**
  * 3. ROUTER & PROCEDURE (THE IMPORTANT BIT)
@@ -68,15 +87,6 @@ export const createTRPCRouter = t.router;
  */
 export const publicProcedure = t.procedure;
 
-/** Reusable middleware that enforces users are logged in before running the procedure. */
-const enforceUserIsAuthed = t.middleware(({ ctx, next }) => {
-  if (!ctx.session.userId) {
-    throw new TRPCError({ code: "UNAUTHORIZED" });
-  }
-  // Make ctx.userId non-nullable in protected procedures
-  return next({ ctx: { userId: ctx.session.userId } });
-});
-
 /**
  * Protected (authenticated) procedure
  *
@@ -85,8 +95,17 @@ const enforceUserIsAuthed = t.middleware(({ ctx, next }) => {
  *
  * @see https://trpc.io/docs/procedures
  */
+/** Reusable middleware that enforces users are logged in before running the procedure. */
+const enforceUserIsAuthed = t.middleware(({ ctx, next }) => {
+  if (!ctx.session?.id) {
+    throw new TRPCError({ code: "UNAUTHORIZED" });
+  }
+  // Make ctx.userId non-nullable in protected procedures
+  return next({ ctx: { userId: ctx.session?.id } });
+});
+
 export const protectedProcedure = t.procedure.use(function isAuthed(opts) {
-  if (!opts.ctx.session.userId) {
+  if (!opts.ctx.session?.id) {
     throw new TRPCError({
       code: "UNAUTHORIZED",
     });

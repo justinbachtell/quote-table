@@ -1,7 +1,7 @@
 import { api } from "@/trpc/server";
 
 export default async function Types() {
-  const allTypes = await api.type.getAll.query();
+  const allTypes = await api.type.getAll();
 
   return (
     <>

@@ -1,16 +1,18 @@
-import { env } from "@/env";
 import { drizzle } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
+
+import { env } from "@/env";
 import * as schema from "./schema";
 
-const client = postgres(env.DATABASE_URL);
-
 /**
- * For connection pooling use the following:
- *
- * Disable prefetch as it is not supported for "Transaction" pool mode
- *
- * const client = postgres(connectionString, { prepare: false })
+ * Cache the database connection in development. This avoids creating a new connection on every HMR
+ * update.
  */
+const globalForDb = globalThis as unknown as {
+  conn: postgres.Sql | undefined;
+};
 
-export const db = drizzle(client, { schema });
+const conn = globalForDb.conn ?? postgres(env.DATABASE_URL);
+if (env.NODE_ENV !== "production") globalForDb.conn = conn;
+
+export const db = drizzle(conn, { schema });

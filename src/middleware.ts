@@ -10,6 +10,7 @@ export default authMiddleware({
     "/signup(.*)",
     "/sso-callback(.*)",
     "/api(.*)",
+    "/api/trpc(.*)",
   ],
   async afterAuth(auth, req) {
     if (auth.isPublicRoute) {

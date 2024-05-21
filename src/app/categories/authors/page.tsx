@@ -1,4 +1,5 @@
 import { api } from "@/trpc/server";
+import { quotes } from "@/db/schema";
 import { currentUser } from "@clerk/nextjs";
 import { DataTable } from "@/components/tables/default/data-table";
 import { columns } from "@/components/tables/default/columns";
@@ -20,10 +21,7 @@ async function AuthorTable() {
   const userId = user?.id;
 
   // Get all quotes with books and authors
-  const quotesWithBookAndAuthors = (
-    await api.quote.getAllWithBooksAndAuthors.query()
-  )
-    // Filter out private quotes that don't belong to the current user
+  const quotesWithBookAndAuthors = (await api.quote.getAllWithBooksAndAuthors())
     .filter((quote) => {
       return quote.isPrivate === false || quote.userId === userId;
     })

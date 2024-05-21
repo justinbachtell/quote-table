@@ -1,7 +1,7 @@
 import { api } from "@/trpc/server";
 
 export default async function States() {
-  const allStates = await api.state.getAll.query();
+  const allStates = await api.state.getAll();
 
   return (
     <>

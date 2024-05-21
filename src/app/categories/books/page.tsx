@@ -1,7 +1,7 @@
 import { api } from "@/trpc/server";
 
 export default async function Books() {
-  const allBooks = await api.book.getAll.query();
+  const allBooks = await api.book.getAll();
 
   return (
     <>

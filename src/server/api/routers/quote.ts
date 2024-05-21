@@ -59,7 +59,7 @@ export const quoteRouter = createTRPCRouter({
       return ctx.db.transaction(async (tx: any) => {
         try {
           // Check if the user is logged in
-          if (!ctx.session.userId) {
+          if (!ctx.session?.id) {
             throw new Error("You must be logged in to create a quote.");
           }
 
@@ -67,7 +67,7 @@ export const quoteRouter = createTRPCRouter({
           const quoteInsertion = await tx
             .insert(quotes)
             .values({
-              userId: ctx.session.userId,
+              userId: ctx.session?.id,
               text: input.text,
               bookId: input.bookId,
               context: input.context,
@@ -263,7 +263,7 @@ export const quoteRouter = createTRPCRouter({
     .input(z.number()) // expects the ID of the quote to delete
     .mutation(async ({ ctx, input }) => {
       return ctx.db.transaction(async (tx: any) => {
-        if (!ctx.session.userId) {
+        if (!ctx.session?.id) {
           throw new Error("You must be logged in to delete a quote.");
         }
 

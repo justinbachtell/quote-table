@@ -1,7 +1,7 @@
 import { api } from "@/trpc/server";
 
 export default async function Topics() {
-  const allTopics = await api.topic.getAll.query();
+  const allTopics = await api.topic.getAll();
 
   return (
     <>

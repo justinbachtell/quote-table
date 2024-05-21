@@ -1,7 +1,7 @@
 import { api } from "@/trpc/server";
 
 export default async function Publishers() {
-  const allPublishers = await api.publisher.getAll.query();
+  const allPublishers = await api.publisher.getAll();
 
   return (
     <>

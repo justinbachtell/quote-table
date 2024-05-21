@@ -1,7 +1,7 @@
 import { api } from "@/trpc/server";
 
 export default async function Genres() {
-  const allGenres = await api.genre.getAll.query();
+  const allGenres = await api.genre.getAll();
 
   return (
     <>
