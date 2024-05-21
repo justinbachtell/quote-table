@@ -80,7 +80,9 @@ export const viewport: Viewport = {
   ],
 };
 
-export default function RootLayout({ children }: React.PropsWithChildren) {
+export default async function RootLayout({
+  children,
+}: React.PropsWithChildren) {
   return (
     <>
       <ClerkProvider
