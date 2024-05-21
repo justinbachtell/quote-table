@@ -1,5 +1,4 @@
 import type { User } from "@clerk/nextjs/server";
-import { SignIn } from "@clerk/nextjs";
 import { DashboardIcon, ExitIcon, GearIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 
@@ -17,6 +16,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { cn, getUserEmail } from "@/lib/utils";
+import { env } from "@/env";
 
 interface AuthDropdownProps extends ButtonProps {
   user: User | null;
@@ -91,7 +91,10 @@ export function AuthDropdown({ user, className, ...props }: AuthDropdownProps) {
         </DropdownMenu>
       ) : (
         <Button size="sm" className={cn(className)} {...props} asChild>
-          <SignIn />
+          <Link href={env.NEXT_PUBLIC_CLERK_SIGN_IN_URL}>
+            Sign In
+            <span className="sr-only">Sign In</span>
+          </Link>
         </Button>
       )}
     </>

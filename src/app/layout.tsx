@@ -111,7 +111,7 @@ export default async function RootLayout({
             >
               <TRPCReactProvider cookies={cookies().toString()}>
                 <div className="relative flex min-h-screen flex-col">
-                  {/* <SiteHeader user={user} /> */}
+                  <SiteHeader user={user} />
                   <main className="flex-1">{children}</main>
                   <SiteFooter />
                 </div>
