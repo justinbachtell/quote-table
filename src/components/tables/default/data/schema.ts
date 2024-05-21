@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const quoteLibrarySchema = z.object({
+export const quoteTableSchema = z.object({
   text: z.string(),
   bookTitle: z.string(),
   pageNumber: z.string().optional(),
@@ -13,4 +13,4 @@ export const quoteLibrarySchema = z.object({
   quoteGenres: z.array(z.string()).optional(),
 });
 
-export type Quote = z.infer<typeof quoteLibrarySchema>;
+export type Quote = z.infer<typeof quoteTableSchema>;

@@ -10,7 +10,7 @@ const links = {
 };
 
 export const siteConfig = {
-  name: "Quote Library",
+  name: "Quote Table",
   description: "A collection of quotes, books, authors, publishers, and more.",
   url: "https://quote-table.justinbachtell.com",
   ogImage: "https://quote-table.justinbachtell.com/opengraph-image.png",

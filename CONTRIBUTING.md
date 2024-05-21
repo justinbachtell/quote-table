@@ -1,6 +1,6 @@
 # Contributing Guide
 
-Thank you for investing your time in contributing to our project! Any contribution you make will be reflected on Quote Library.
+Thank you for investing your time in contributing to our project! Any contribution you make will be reflected on Quote Table.
 
 Read our [Code of Conduct](./CODE_OF_CONDUCT.md) to keep our community approachable and respectable.
 
@@ -93,7 +93,7 @@ Finally, open a pull request with the changes.
 
 Congratulations :tada::tada: The GitHub team thanks you :sparkles:.
 
-Once your PR is merged, your contributions will be publicly visible on [Quote Library](https://github.com/justinbachtell/quote-table).
+Once your PR is merged, your contributions will be publicly visible on [Quote Table](https://github.com/justinbachtell/quote-table).
 
 ### Credits
 

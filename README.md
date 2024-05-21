@@ -1,4 +1,4 @@
-# [Quote Library](https://quote-table.justinbachtell.com/)
+# [Quote Table](https://quote-table.justinbachtell.com/)
 
 This is an open source starter template for Next.js applications.
 
