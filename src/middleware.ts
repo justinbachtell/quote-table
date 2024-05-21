@@ -7,7 +7,7 @@ const isPublicRoute = createRouteMatcher(["/", "/api(.*)", "/api/trpc(.*)"]);
 
 // Set the necessary options for a satellite application
 const options = {
-  isSatellite: true,
+  isSatellite: false,
   signInUrl: env.NEXT_PUBLIC_CLERK_SIGN_IN_URL,
   domain: env.NEXT_PUBLIC_CLERK_DOMAIN,
 };
