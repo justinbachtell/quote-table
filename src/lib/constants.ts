@@ -10,4 +10,4 @@ export const redirects = {
   afterVerify: "/dashboard",
 } as const;
 
-export const dbPrefix = "quote-library";
+export const dbPrefix = "quote-table";

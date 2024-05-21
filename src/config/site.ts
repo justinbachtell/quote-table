@@ -4,7 +4,7 @@ export type SiteConfig = typeof siteConfig;
 
 const links = {
   x: "https://twitter.com/justinjbachtell",
-  github: "https://github.com/justinbachtell/quote-library",
+  github: "https://github.com/justinbachtell/quote-table",
   githubAccount: "https://github.com/justinbachtell",
   site: "https://justinbachtell.com",
 };
@@ -12,8 +12,8 @@ const links = {
 export const siteConfig = {
   name: "Quote Library",
   description: "A collection of quotes, books, authors, publishers, and more.",
-  url: "https://quote-library.justinbachtell.com",
-  ogImage: "https://quote-library.justinbachtell.com/opengraph-image.png",
+  url: "https://quote-table.justinbachtell.com",
+  ogImage: "https://quote-table.justinbachtell.com/opengraph-image.png",
   links,
   /* mainNav: [
     {

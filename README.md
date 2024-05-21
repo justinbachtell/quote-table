@@ -1,4 +1,4 @@
-# [Quote Library](https://quote-library.justinbachtell.com/)
+# [Quote Library](https://quote-table.justinbachtell.com/)
 
 This is an open source starter template for Next.js applications.
 
@@ -46,7 +46,7 @@ This is an open source starter template for Next.js applications.
 1. Clone the repository
 
    ```bash
-   git clone https://github.com/justinbachtell/quote-library.git
+   git clone https://github.com/justinbachtell/quote-table.git
    ```
 
 2. Install dependencies using pnpm
@@ -86,8 +86,8 @@ Contributions are welcome! Please open an issue if you have any questions or sug
 Thanks goes to these wonderful people for their contributions:
 
 <p align="center">
-<a href="https://github.com/justinbachtell/quote-library/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=justinbachtell/quote-library" />
+<a href="https://github.com/justinbachtell/quote-table/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=justinbachtell/quote-table" />
 </a>
 </p>
 

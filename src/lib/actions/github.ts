@@ -6,7 +6,7 @@ export async function getGithubStars() {
   return await cache(
     async () => {
       const response = await fetch(
-        "https://api.github.com/repos/justinbachtell/quote-library",
+        "https://api.github.com/repos/justinbachtell/quote-table",
         {
           headers: {
             Accept: "application/vnd.github+json",
