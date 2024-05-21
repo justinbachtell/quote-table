@@ -1,5 +1,4 @@
 import { env } from "@/env";
-
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 
 // Set public routes
@@ -13,9 +12,10 @@ const options = {
 };
 
 export default clerkMiddleware((auth, req) => {
-  if (isPublicRoute(req)) return; // if it's a public route, do nothing
-  auth().protect(); // for any other route, require auth
-}, options);
+  if (!isPublicRoute(req)) {
+    auth().protect();
+  }
+}, /* {debug: true } */ options);
 
 export const config = {
   matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/", "/(api|trpc)(.*)"],
