@@ -9,6 +9,9 @@ This is an open source starter template for Next.js applications.
 >
 > This project is still in development and contributions are welcome!
 
+## Status
+![](https://api.checklyhq.com/v1/badges/checks/841889e4-75eb-413a-a4ee-60e72753d5fd?style=flat&theme=default)
+
 ## Tech Stack
 
 - **Framework:** [Next.js](https://nextjs.org)

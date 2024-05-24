@@ -3,6 +3,8 @@ import { env } from "@/env.js";
 import { ClerkProvider } from "@clerk/nextjs";
 import { currentUser } from "@clerk/nextjs/server";
 import type { Metadata, Viewport } from "next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 
 import "@/styles/globals.css";
 
@@ -111,6 +113,8 @@ export default async function RootLayout({
                   <main className="flex-1">{children}</main>
                   <SiteFooter />
                 </div>
+                <SpeedInsights />
+                <Analytics />
               </TRPCReactProvider>
             </ThemeProvider>
             <Toaster />

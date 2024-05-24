@@ -9,10 +9,10 @@ import * as schema from "./schema";
  * update.
  */
 const globalForDb = globalThis as unknown as {
-  conn: postgres.Sql | undefined;
+  connection: postgres.Sql | undefined;
 };
 
-const conn = globalForDb.conn ?? postgres(env.DATABASE_URL);
-if (env.NODE_ENV !== "production") globalForDb.conn = conn;
+const connection = globalForDb.connection ?? postgres(env.DATABASE_URL);
+if (env.NODE_ENV !== "production") globalForDb.connection = connection;
 
-export const db = drizzle(conn, { schema });
+export const db = drizzle(connection, { schema });
